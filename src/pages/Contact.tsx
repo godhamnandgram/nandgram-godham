@@ -5,13 +5,13 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import Layout from '@/components/layout/Layout';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const Contact = () => {
   const { t } = useLanguage();
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
   const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   const distances = [
@@ -22,33 +22,14 @@ const Contact = () => {
     { cityKey: 'contact.distance.aurangabad', km: '170 km' },
   ];
 
-  // Handle form submission with AJAX
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-
-    try {
-      const response = await fetch('https://formsubmit.co/godhamnandgram@gmail.com', {
-        method: 'POST',
-        body: formData,
-      });
-
-      if (response.ok) {
-        // Show success modal
-        setShowSuccessModal(true);
-        // Reset form
-        form.reset();
-      }
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      alert('Failed to send message. Please try again.');
-    } finally {
-      setIsSubmitting(false);
+  // Check if form was submitted successfully
+  useEffect(() => {
+    if (searchParams.get('success') === 'true') {
+      setShowSuccessModal(true);
+      // Remove the query parameter
+      setSearchParams({});
     }
-  };
+  }, [searchParams, setSearchParams]);
 
   return (
     <Layout>
@@ -101,7 +82,7 @@ const Contact = () => {
 
                 {/* EMAIL */}
                 <a
-                  href="mailto:info@nandgramgodam.com"
+                  href="mailto:godhamnandgram@gmail.com"
                   className="glass-card p-4 flex items-center gap-4 hover:scale-[1.02] transition"
                 >
                   <Mail className="text-secondary" />
@@ -122,49 +103,56 @@ const Contact = () => {
                   {t('contact.form.title1')}
                 </h2>
 
+                {/* 
+                  FIXED FORM - Uses FormSubmit with redirect back to same page
+                  This avoids CORS issues
+                */}
                 <form 
-                  onSubmit={handleSubmit}
+                  action="https://formsubmit.co/godhamnandgram@gmail.com"
+                  method="POST"
                   className="space-y-3"
                 >
-                  {/* Hidden fields for FormSubmit */}
+                  {/* Hidden fields for FormSubmit configuration */}
                   <input type="hidden" name="_subject" value="New Contact Form - Nandgram Godham" />
                   <input type="hidden" name="_captcha" value="false" />
                   <input type="hidden" name="_template" value="box" />
+                  
+                  {/* IMPORTANT: Redirect back to contact page with success parameter */}
+                  <input 
+                    type="hidden" 
+                    name="_next" 
+                    value={`${window.location.origin}/contact?success=true`}
+                  />
                   
                   {/* Form fields */}
                   <Input 
                     name="name"
                     placeholder={t('contact.form.name1')}
                     required
-                    disabled={isSubmitting}
                   />
                   <Input 
                     name="phone"
                     placeholder={t('contact.form.phone1')}
                     type="tel"
                     required
-                    disabled={isSubmitting}
                   />
                   <Input 
                     name="city"
                     placeholder={t('contact.form.city')}
                     required
-                    disabled={isSubmitting}
                   />
                   <Textarea 
                     name="message"
                     rows={3} 
                     placeholder={t('contact.form.message1')}
                     required
-                    disabled={isSubmitting}
                   />
 
                   <Button 
                     type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-secondary rounded-xl disabled:opacity-50"
+                    className="w-full bg-secondary rounded-xl"
                   >
-                    {isSubmitting ? t('contact.form.sending') : t('contact.form.submit1')}
+                    {t('contact.form.submit1')}
                     <Send className="ml-2 h-4 w-4" />
                   </Button>
                 </form>
