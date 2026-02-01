@@ -1,0 +1,738 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Nandgram Godam - Modern Tropical Botanical Illustration Theme */
+
+.experience-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 800px;
+}
+
+
+
+.social-btn {
+  @apply w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition;
+}
+
+.footer-wave {
+  clip-path: path(
+    "M0,0 
+     L0,60 
+     C120,20 240,100 360,60 
+     C480,20 600,100 720,60 
+     C840,20 960,100 1080,60 
+     C1200,20 1320,100 1440,60 
+     L1440,0 
+     Z"
+  );
+}
+
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+
+.marquee-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+.marquee-item {
+  width: 220px;
+  height: 220px;
+  flex-shrink: 0;
+}
+
+
+
+
+@layer base {
+  :root {
+    /* Tropical Botanical Color Palette */
+    --background: 48 50% 96%;
+    --foreground: 160 30% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 160 30% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 160 30% 12%;
+
+    /* Primary - Lush Tropical Green */
+    --primary: 160 60% 35%;
+    --primary-foreground: 48 50% 98%;
+
+    /* Secondary - Coral Hibiscus Pink */
+    --secondary: 350 70% 60%;
+    --secondary-foreground: 48 50% 98%;
+
+    /* Muted - Soft Cream */
+    --muted: 45 40% 92%;
+    --muted-foreground: 160 20% 40%;
+
+    /* Accent - Golden Yellow (Plumeria) */
+    --accent: 45 90% 55%;
+    --accent-foreground: 160 30% 12%;
+
+    /* Tertiary - Turquoise Water */
+    --tertiary: 175 65% 45%;
+    --tertiary-foreground: 48 50% 98%;
+
+    /* Tropical extras */
+    --tropical-leaf: 145 55% 30%;
+    --tropical-flower: 15 80% 60%;
+    --tropical-ocean: 190 70% 50%;
+    --tropical-sand: 40 45% 88%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 48 50% 98%;
+
+    --border: 45 30% 85%;
+    --input: 45 30% 85%;
+    --ring: 160 60% 35%;
+
+    --radius: 1rem;
+
+    /* Glass Morphism */
+    --glass: 0 0% 100% / 0.8;
+    --glass-border: 0 0% 100% / 0.4;
+    --glass-blur: 20px;
+
+    /* Tropical Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(160 60% 35%) 0%, hsl(175 65% 45%) 100%);
+    --gradient-warm: linear-gradient(135deg, hsl(350 70% 60%) 0%, hsl(15 80% 60%) 100%);
+    --gradient-tropical: linear-gradient(135deg, hsl(160 60% 35%) 0%, hsl(145 55% 30%) 50%, hsl(175 65% 45%) 100%);
+    --gradient-sunset: linear-gradient(135deg, hsl(350 70% 60%) 0%, hsl(45 90% 55%) 100%);
+
+    /* Sidebar */
+    --sidebar-background: 160 55% 20%;
+    --sidebar-foreground: 48 50% 98%;
+    --sidebar-primary: 45 90% 55%;
+    --sidebar-primary-foreground: 160 30% 12%;
+    --sidebar-accent: 160 50% 28%;
+    --sidebar-accent-foreground: 48 50% 98%;
+    --sidebar-border: 160 40% 30%;
+    --sidebar-ring: 45 90% 55%;
+  }
+
+  .dark {
+    --background: 160 25% 6%;
+    --foreground: 48 40% 95%;
+
+    --card: 160 20% 10%;
+    --card-foreground: 48 40% 95%;
+
+    --popover: 160 20% 10%;
+    --popover-foreground: 48 40% 95%;
+
+    --primary: 160 55% 45%;
+    --primary-foreground: 160 25% 6%;
+
+    --secondary: 350 65% 55%;
+    --secondary-foreground: 48 40% 95%;
+
+    --muted: 160 15% 14%;
+    --muted-foreground: 45 25% 55%;
+
+    --accent: 45 85% 55%;
+    --accent-foreground: 160 25% 6%;
+
+    --tertiary: 175 60% 50%;
+    --tertiary-foreground: 160 25% 6%;
+
+    --tropical-leaf: 145 50% 40%;
+    --tropical-flower: 15 75% 55%;
+    --tropical-ocean: 190 65% 55%;
+    --tropical-sand: 40 35% 25%;
+
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 48 40% 95%;
+
+    --border: 160 15% 18%;
+    --input: 160 15% 18%;
+    --ring: 160 55% 45%;
+
+    --glass: 160 20% 10% / 0.8;
+    --glass-border: 160 20% 20% / 0.5;
+
+    --sidebar-background: 160 20% 8%;
+    --sidebar-foreground: 48 40% 95%;
+    --sidebar-primary: 45 85% 55%;
+    --sidebar-primary-foreground: 160 25% 6%;
+    --sidebar-accent: 160 15% 14%;
+    --sidebar-accent-foreground: 48 40% 95%;
+    --sidebar-border: 160 15% 18%;
+    --sidebar-ring: 45 85% 55%;
+  }
+}
+
+@layer base {
+  h1 {
+    @apply text-3xl md:text-4xl font-bold leading-tight;
+  }
+
+  h2 {
+    @apply text-2xl md:text-3xl font-semibold leading-snug;
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl font-semibold;
+  }
+
+  h4 {
+    @apply text-lg md:text-xl font-medium;
+  }
+
+  h5 {
+    @apply text-base md:text-lg font-medium;
+  }
+
+  h6 {
+    @apply text-sm md:text-base font-medium;
+  }
+}
+
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+
+@layer components {
+  /* Tropical Leaf Decorations - SVG-based */
+  .leaf-decoration {
+    @apply absolute pointer-events-none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 5 C20 20 10 50 50 95 C90 50 80 20 50 5' fill='%2338A169' opacity='0.6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .leaf-top-left {
+    @apply -top-10 -left-10 w-40 h-40 rotate-[-30deg];
+  }
+
+  .leaf-top-right {
+    @apply -top-10 -right-10 w-48 h-48 rotate-[30deg] scale-x-[-1];
+  }
+
+  .leaf-bottom-left {
+    @apply -bottom-10 -left-10 w-44 h-44 rotate-[150deg];
+  }
+
+  .leaf-bottom-right {
+    @apply -bottom-10 -right-10 w-40 h-40 rotate-[-150deg] scale-x-[-1];
+  }
+
+  /* Tropical Flower Border */
+  .tropical-border {
+    @apply relative;
+  }
+
+  .tropical-border::before,
+  .tropical-border::after {
+    content: '';
+    @apply absolute w-24 h-24 pointer-events-none opacity-70;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='10' fill='%23F6AD55'/%3E%3Cellipse cx='50' cy='20' rx='15' ry='20' fill='%23FC8181'/%3E%3Cellipse cx='50' cy='80' rx='15' ry='20' fill='%23FC8181'/%3E%3Cellipse cx='20' cy='50' rx='20' ry='15' fill='%23FC8181'/%3E%3Cellipse cx='80' cy='50' rx='20' ry='15' fill='%23FC8181'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .tropical-border::before {
+    @apply -top-8 -left-8;
+  }
+
+  .tropical-border::after {
+    @apply -bottom-8 -right-8 rotate-180;
+  }
+
+  /* Glass Morphism Card with Tropical Tint */
+  .glass-card {
+    @apply bg-card/85 backdrop-blur-xl border border-primary/10 shadow-lg rounded-2xl;
+  }
+
+  .glass-card-strong {
+    @apply bg-card/95 backdrop-blur-2xl border border-primary/20 shadow-xl rounded-2xl;
+  }
+
+  /* Floating Glass Effect */
+  .glass-float {
+    @apply bg-card/80 backdrop-blur-xl border border-border/30 shadow-2xl rounded-3xl;
+    box-shadow: 
+      0 25px 50px -12px hsl(var(--primary) / 0.2),
+      0 0 0 1px hsl(var(--border) / 0.5),
+      inset 0 1px 0 hsl(0 0% 100% / 0.15);
+  }
+
+  /* Tropical Hero Overlay */
+  .hero-overlay {
+    background: linear-gradient(
+      180deg,
+      hsl(160 30% 10% / 0.3) 0%,
+      hsl(160 30% 10% / 0.5) 50%,
+      hsl(160 30% 10% / 0.85) 100%
+    );
+  }
+
+  /* Botanical Pattern Background */
+  .botanical-pattern {
+    background-image: 
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cpath d='M40 10 C25 25 20 40 40 70 C60 40 55 25 40 10' fill='%2338A169' opacity='0.08'/%3E%3C/svg%3E"),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Ccircle cx='30' cy='30' r='4' fill='%23F6AD55' opacity='0.1'/%3E%3C/svg%3E");
+    background-size: 80px 80px, 60px 60px;
+    background-position: 0 0, 40px 40px;
+  }
+
+  /* Mesh Gradient with Tropical Colors */
+  .mesh-gradient {
+    background: 
+      radial-gradient(at 20% 20%, hsl(160 60% 35% / 0.15) 0px, transparent 50%),
+      radial-gradient(at 80% 10%, hsl(45 90% 55% / 0.12) 0px, transparent 50%),
+      radial-gradient(at 0% 60%, hsl(350 70% 60% / 0.08) 0px, transparent 50%),
+      radial-gradient(at 90% 60%, hsl(175 65% 45% / 0.1) 0px, transparent 50%),
+      radial-gradient(at 50% 100%, hsl(160 60% 35% / 0.1) 0px, transparent 50%),
+      hsl(var(--background));
+  }
+
+  /* Tropical Gradient Text */
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--tertiary)) 100%);
+  }
+
+  .gradient-text-warm {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--secondary)) 0%, hsl(var(--accent)) 100%);
+  }
+
+  .gradient-text-tropical {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 50%, hsl(var(--accent)) 100%);
+  }
+
+  /* Modern Card with Tropical Styling */
+  .card-modern {
+    @apply relative bg-card rounded-3xl overflow-hidden transition-all duration-500;
+    box-shadow: 
+      0 4px 6px -1px hsl(var(--primary) / 0.08),
+      0 2px 4px -2px hsl(var(--primary) / 0.05);
+  }
+
+  .card-modern:hover {
+    @apply -translate-y-2;
+    box-shadow: 
+      0 25px 50px -12px hsl(var(--primary) / 0.15),
+      0 12px 20px -8px hsl(var(--primary) / 0.1);
+  }
+
+  .card-modern::before {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-500;
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.05) 0%, hsl(var(--accent) / 0.05) 100%);
+  }
+
+  .card-modern:hover::before {
+    @apply opacity-100;
+  }
+
+  /* Tropical Card with Leaf Accent */
+  .card-tropical {
+    @apply relative bg-card rounded-3xl overflow-hidden transition-all duration-500 border-2 border-primary/10;
+    box-shadow: 0 10px 40px -15px hsl(var(--primary) / 0.2);
+  }
+
+  .card-tropical::after {
+    content: '';
+    @apply absolute -top-10 -right-10 w-32 h-32 opacity-20 pointer-events-none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 5 C20 20 10 50 50 95 C90 50 80 20 50 5' fill='%2338A169'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: rotate(45deg);
+  }
+
+  .card-tropical:hover {
+    @apply -translate-y-2 border-primary/30;
+    box-shadow: 0 20px 50px -15px hsl(var(--primary) / 0.25);
+  }
+
+  /* Glow Effects */
+  .glow {
+    box-shadow: 
+      0 0 25px hsl(var(--primary) / 0.35),
+      0 0 50px hsl(var(--primary) / 0.2),
+      0 0 75px hsl(var(--primary) / 0.1);
+  }
+
+  .glow-warm {
+    box-shadow: 
+      0 0 25px hsl(var(--secondary) / 0.35),
+      0 0 50px hsl(var(--secondary) / 0.2);
+  }
+
+  .glow-accent {
+    box-shadow: 
+      0 0 25px hsl(var(--accent) / 0.4),
+      0 0 50px hsl(var(--accent) / 0.25);
+  }
+
+  /* Animated Gradient Border */
+  .border-gradient {
+    @apply relative;
+  }
+
+  .border-gradient::before {
+    content: '';
+    @apply absolute inset-0 rounded-3xl p-[2px];
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)), hsl(var(--accent)), hsl(var(--tertiary)));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+
+  /* Tropical Badge */
+  .badge-tropical {
+    @apply relative px-5 py-2 rounded-full text-sm font-semibold;
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.15), hsl(var(--tertiary) / 0.15));
+    border: 1px solid hsl(var(--primary) / 0.3);
+    color: hsl(var(--primary));
+  }
+
+  .badge-flower {
+    @apply relative px-5 py-2 rounded-full text-sm font-semibold;
+    background: linear-gradient(135deg, hsl(var(--secondary) / 0.15), hsl(var(--accent) / 0.15));
+    border: 1px solid hsl(var(--secondary) / 0.3);
+    color: hsl(var(--secondary));
+  }
+
+  /* Icon Container - Tropical Style */
+  .icon-box {
+    @apply relative flex items-center justify-center rounded-2xl transition-all duration-300;
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.12), hsl(var(--tertiary) / 0.08));
+  }
+
+  .icon-box-warm {
+    @apply relative flex items-center justify-center rounded-2xl transition-all duration-300;
+    background: linear-gradient(135deg, hsl(var(--secondary) / 0.12), hsl(var(--accent) / 0.08));
+  }
+
+  .icon-box::before {
+    content: '';
+    @apply absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300;
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--tertiary)));
+  }
+
+  .icon-box:hover::before,
+  .group:hover .icon-box::before {
+    @apply opacity-100;
+  }
+
+  .icon-box:hover svg,
+  .group:hover .icon-box svg {
+    @apply text-primary-foreground relative z-10;
+  }
+
+  /* Section Divider with Leaf Pattern */
+  .section-divider {
+    @apply relative h-24 pointer-events-none overflow-hidden;
+  }
+
+  .section-divider::before {
+    content: '';
+    @apply absolute inset-0;
+    background: linear-gradient(180deg, transparent 0%, hsl(var(--background)) 100%);
+  }
+
+  /* Organic Wave Divider */
+  .wave-divider {
+    @apply relative h-20 -mt-20 pointer-events-none;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100'%3E%3Cpath fill='%23f7f5f0' d='M0,50 C360,100 720,0 1080,50 C1260,75 1350,75 1440,50 L1440,100 L0,100 Z'/%3E%3C/svg%3E");
+    background-size: cover;
+    background-position: center bottom;
+  }
+
+  /* Floating Tropical Elements */
+  .tropical-float {
+    @apply absolute pointer-events-none opacity-60;
+    animation: tropical-drift 20s ease-in-out infinite;
+  }
+
+  @keyframes tropical-drift {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-15px) rotate(3deg); }
+    50% { transform: translateY(-5px) rotate(-2deg); }
+    75% { transform: translateY(-20px) rotate(5deg); }
+  }
+
+  /* Story Link Animation */
+  .story-link {
+    @apply relative inline-block;
+  }
+
+  .story-link::after {
+    content: '';
+    @apply absolute w-full scale-x-0 h-0.5 bottom-0 left-0 origin-bottom-right transition-transform duration-300 rounded-full;
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--secondary)));
+  }
+
+  .story-link:hover::after {
+    @apply scale-x-100 origin-bottom-left;
+  }
+
+  /* Image Hover Zoom with Tropical Border */
+  .img-zoom {
+    @apply overflow-hidden rounded-2xl;
+  }
+
+  .img-zoom img {
+    @apply transition-transform duration-700 ease-out;
+  }
+
+  .img-zoom:hover img {
+    @apply scale-110;
+  }
+
+  /* Button Tropical Styles */
+  .btn-tropical {
+    @apply relative overflow-hidden px-8 py-4 rounded-full font-semibold transition-all duration-300;
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--tertiary)));
+    color: hsl(var(--primary-foreground));
+    box-shadow: 0 10px 30px -10px hsl(var(--primary) / 0.5);
+  }
+
+  .btn-tropical:hover {
+    @apply -translate-y-1;
+    box-shadow: 0 15px 40px -10px hsl(var(--primary) / 0.6);
+  }
+
+  .btn-tropical::before {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-300;
+    background: linear-gradient(135deg, hsl(var(--tertiary)), hsl(var(--primary)));
+  }
+
+  .btn-tropical:hover::before {
+    @apply opacity-100;
+  }
+
+  .btn-flower {
+    @apply relative overflow-hidden px-8 py-4 rounded-full font-semibold transition-all duration-300;
+    background: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--tropical-flower)));
+    color: hsl(var(--secondary-foreground));
+    box-shadow: 0 10px 30px -10px hsl(var(--secondary) / 0.5);
+  }
+
+  .btn-flower:hover {
+    @apply -translate-y-1;
+    box-shadow: 0 15px 40px -10px hsl(var(--secondary) / 0.6);
+  }
+
+  /* Stats Card Tropical */
+  .stat-card {
+    @apply text-center p-8 rounded-3xl;
+    background: linear-gradient(180deg, hsl(var(--card)) 0%, hsl(var(--muted) / 0.5) 100%);
+    border: 1px solid hsl(var(--primary) / 0.1);
+  }
+
+  /* Hero Section Tropical */
+  .hero-tropical {
+    @apply relative overflow-hidden;
+    background: linear-gradient(
+      135deg,
+      hsl(var(--primary) / 0.95) 0%,
+      hsl(var(--tertiary) / 0.9) 50%,
+      hsl(var(--tropical-leaf) / 0.85) 100%
+    );
+  }
+
+  /* Decorative Hibiscus */
+  .hibiscus-decoration {
+    @apply absolute pointer-events-none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg transform='translate(50,50)'%3E%3Cellipse cx='0' cy='-25' rx='12' ry='25' fill='%23FC8181' transform='rotate(0)'/%3E%3Cellipse cx='0' cy='-25' rx='12' ry='25' fill='%23F687B3' transform='rotate(72)'/%3E%3Cellipse cx='0' cy='-25' rx='12' ry='25' fill='%23FC8181' transform='rotate(144)'/%3E%3Cellipse cx='0' cy='-25' rx='12' ry='25' fill='%23F687B3' transform='rotate(216)'/%3E%3Cellipse cx='0' cy='-25' rx='12' ry='25' fill='%23FC8181' transform='rotate(288)'/%3E%3Ccircle cx='0' cy='0' r='10' fill='%23F6AD55'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  /* Plumeria Decoration */
+  .plumeria-decoration {
+    @apply absolute pointer-events-none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg transform='translate(50,50)'%3E%3Cellipse cx='0' cy='-22' rx='14' ry='22' fill='%23FEFCBF' transform='rotate(0)'/%3E%3Cellipse cx='0' cy='-22' rx='14' ry='22' fill='white' transform='rotate(72)'/%3E%3Cellipse cx='0' cy='-22' rx='14' ry='22' fill='%23FEFCBF' transform='rotate(144)'/%3E%3Cellipse cx='0' cy='-22' rx='14' ry='22' fill='white' transform='rotate(216)'/%3E%3Cellipse cx='0' cy='-22' rx='14' ry='22' fill='%23FEFCBF' transform='rotate(288)'/%3E%3Ccircle cx='0' cy='0' r='8' fill='%23F6AD55'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  /* Palm Leaf Decoration */
+  .palm-leaf {
+    @apply absolute pointer-events-none opacity-80;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 200'%3E%3Cpath d='M50 200 L50 100 Q30 80 10 60 Q30 70 50 80 Q30 50 5 30 Q35 45 50 60 Q40 30 20 5 Q50 40 50 60 Q60 30 80 5 Q60 40 50 60 Q70 45 95 30 Q70 50 50 80 Q70 70 90 60 Q70 80 50 100 Z' fill='%2338A169' opacity='0.9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+@layer utilities {
+  /* Stagger Animation */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+  .stagger-6 { animation-delay: 0.6s; }
+
+  /* Text Shadow Tropical */
+  .text-shadow {
+    text-shadow: 0 2px 10px hsl(var(--foreground) / 0.15);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 0 4px 20px hsl(var(--foreground) / 0.25);
+  }
+
+  .text-shadow-tropical {
+    text-shadow: 0 4px 30px hsl(var(--primary) / 0.3);
+  }
+
+  /* Custom Scrollbar - Tropical */
+  .scrollbar-tropical::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .scrollbar-tropical::-webkit-scrollbar-track {
+    @apply bg-muted/50 rounded-full;
+  }
+
+  .scrollbar-tropical::-webkit-scrollbar-thumb {
+    @apply bg-primary/40 rounded-full;
+    background: linear-gradient(180deg, hsl(var(--primary)), hsl(var(--tertiary)));
+  }
+
+  .scrollbar-tropical::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/60;
+  }
+
+  /* Hide scrollbar */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Tropical Filter */
+  .tropical-overlay {
+    @apply relative;
+  }
+
+  .tropical-overlay::after {
+    content: '';
+    @apply absolute inset-0 pointer-events-none;
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.05), transparent 50%, hsl(var(--accent) / 0.05));
+  }
+}
+
+
+
+/* ============================================
+   DEVANAGARI SCRIPT FIX - CSS SOLUTION
+   ============================================
+   
+   Add this to your global CSS file or component styles
+   to fix text clipping issues with Hindi/Marathi text
+============================================ */
+
+/* OPTION 1: Quick Fix - Increase line-height for all headings */
+.font-display,
+.editorial-title,
+.modern-title {
+  line-height: 1.5 !important;
+  padding-top: 0.15em;
+  padding-bottom: 0.15em;
+}
+
+/* OPTION 2: Language-specific fix (Recommended) */
+/* Add lang attribute to your HTML: <html lang="hi"> or <html lang="mr"> */
+[lang="hi"] h1, [lang="hi"] h2, [lang="hi"] h3, [lang="hi"] h4, [lang="hi"] h5, [lang="hi"] h6,
+[lang="mr"] h1, [lang="mr"] h2, [lang="mr"] h3, [lang="mr"] h4, [lang="mr"] h5, [lang="mr"] h6 {
+  line-height: 1.6 !important;
+  padding-top: 0.25em !important;
+  padding-bottom: 0.15em !important;
+}
+
+[lang="hi"] p,
+[lang="mr"] p {
+  line-height: 1.8 !important;
+}
+
+/* OPTION 3: Specific class-based fix */
+.devanagari-text {
+  line-height: 1.6 !important;
+  padding-top: 0.25em;
+  padding-bottom: 0.15em;
+}
+
+.devanagari-heading {
+  line-height: 1.5 !important;
+  padding-top: 0.3em;
+  padding-bottom: 0.2em;
+}
+
+/* OPTION 4: Global fix for all text (use with caution) */
+body[lang="hi"], 
+body[lang="mr"] {
+  line-height: 1.7;
+}
+
+body[lang="hi"] *,
+body[lang="mr"] * {
+  /* Add vertical padding to prevent clipping */
+  padding-top: 0.05em;
+  padding-bottom: 0.05em;
+}
+
+/* Fix for gradient text specifically */
+.gradient-text {
+  line-height: 1.5 !important;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  display: inline-block;
+}
+
+/* Prevent overflow clipping */
+h1, h2, h3, h4, h5, h6 {
+  overflow: visible !important;
+}
+
+/* ============================================
+   FONT RECOMMENDATIONS FOR DEVANAGARI
+   ============================================ */
+
+/* Use proper Devanagari fonts for better rendering */
+
+
+[lang="hi"], [lang="mr"] {
+  font-family: 'Noto Sans Devanagari', 'Playfair Display', serif, system-ui;
+}
+
+/* Alternative fonts for Devanagari */
+/* 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500;600;700;800&display=swap');
+*/
