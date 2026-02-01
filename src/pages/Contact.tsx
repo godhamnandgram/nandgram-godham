@@ -1,18 +1,19 @@
 import {
-  Phone, MessageCircle, Mail, MapPin, Clock, Send, ArrowRight, Car, CheckCircle, X
+  Phone, MessageCircle, Mail, MapPin, Clock, Send, ArrowRight, Car, CheckCircle, X, Loader2
 } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Layout from '@/components/layout/Layout';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const Contact = () => {
   const { t } = useLanguage();
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [showErrorModal, setShowErrorModal] = useState(false);
 
   const distances = [
     { cityKey: 'contact.distance.bhusawal', km: '5 km' },
@@ -22,14 +23,48 @@ const Contact = () => {
     { cityKey: 'contact.distance.aurangabad', km: '170 km' },
   ];
 
-  // Check if form was submitted successfully
-  useEffect(() => {
-    if (searchParams.get('success') === 'true') {
-      setShowSuccessModal(true);
-      // Remove the query parameter
-      setSearchParams({});
+  // Handle form submission
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    // Convert FormData to JSON
+    const data = {
+      name: formData.get('name'),
+      phone: formData.get('phone'),
+      city: formData.get('city'),
+      message: formData.get('message'),
+      access_key: '88b28406-7cd6-44db-98f3-f1cca1ad435d', 
+    };
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setShowSuccessModal(true);
+        form.reset();
+      } else {
+        setShowErrorModal(true);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setShowErrorModal(true);
+    } finally {
+      setIsSubmitting(false);
     }
-  }, [searchParams, setSearchParams]);
+  };
 
   return (
     <Layout>
@@ -103,57 +138,50 @@ const Contact = () => {
                   {t('contact.form.title1')}
                 </h2>
 
-                {/* 
-                  FIXED FORM - Uses FormSubmit with redirect back to same page
-                  This avoids CORS issues
-                */}
-                <form 
-                  action="https://formsubmit.co/godhamnandgram@gmail.com"
-                  method="POST"
-                  className="space-y-3"
-                >
-                  {/* Hidden fields for FormSubmit configuration */}
-                  <input type="hidden" name="_subject" value="New Contact Form - Nandgram Godham" />
-                  <input type="hidden" name="_captcha" value="false" />
-                  <input type="hidden" name="_template" value="box" />
-                  
-                  {/* IMPORTANT: Redirect back to contact page with success parameter */}
-                  <input 
-                    type="hidden" 
-                    name="_next" 
-                    value={`${window.location.origin}/contact?success=true`}
-                  />
-                  
-                  {/* Form fields */}
+                <form onSubmit={handleSubmit} className="space-y-3">
                   <Input 
                     name="name"
                     placeholder={t('contact.form.name1')}
                     required
+                    disabled={isSubmitting}
                   />
                   <Input 
                     name="phone"
                     placeholder={t('contact.form.phone1')}
                     type="tel"
                     required
+                    disabled={isSubmitting}
                   />
                   <Input 
                     name="city"
                     placeholder={t('contact.form.city')}
                     required
+                    disabled={isSubmitting}
                   />
                   <Textarea 
                     name="message"
                     rows={3} 
                     placeholder={t('contact.form.message1')}
                     required
+                    disabled={isSubmitting}
                   />
 
                   <Button 
                     type="submit"
-                    className="w-full bg-secondary rounded-xl"
+                    disabled={isSubmitting}
+                    className="w-full bg-secondary rounded-xl disabled:opacity-50"
                   >
-                    {t('contact.form.submit1')}
-                    <Send className="ml-2 h-4 w-4" />
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        {t('contact.form.sending')}
+                      </>
+                    ) : (
+                      <>
+                        {t('contact.form.submit1')}
+                        <Send className="ml-2 h-4 w-4" />
+                      </>
+                    )}
                   </Button>
                 </form>
               </div>
@@ -261,6 +289,45 @@ const Contact = () => {
                 className="w-full rounded-xl bg-primary"
               >
                 {t('contact.form.success.close')}
+              </Button>
+            </div>
+          </div>
+        )}
+
+        {/* ERROR MODAL */}
+        {showErrorModal && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4">
+            <div className="relative bg-white rounded-3xl shadow-2xl w-full max-w-md p-8 animate-fade-in">
+              
+              {/* Close Button */}
+              <button
+                onClick={() => setShowErrorModal(false)}
+                className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition"
+              >
+                <X className="h-6 w-6" />
+              </button>
+
+              {/* Error Icon */}
+              <div className="flex justify-center mb-4">
+                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center">
+                  <X className="h-10 w-10 text-red-600" />
+                </div>
+              </div>
+
+              {/* Error Message */}
+              <h3 className="font-display text-2xl font-bold text-center mb-2">
+                Failed to Send
+              </h3>
+              <p className="text-muted-foreground text-center mb-6">
+                Please try again or contact us directly via phone or WhatsApp.
+              </p>
+
+              {/* Close Button */}
+              <Button
+                onClick={() => setShowErrorModal(false)}
+                className="w-full rounded-xl bg-primary"
+              >
+                Close
               </Button>
             </div>
           </div>
