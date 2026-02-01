@@ -1143,8 +1143,8 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.rights': 'सर्वाधिकार सुरक्षित',
     'footer.privacy': 'गोपनीयता नीति',
     'footer.terms': 'सेवा की शर्तें',
-    'footer.hours.weekdays': 'सोमवार - रविवार',
-    'footer.hours.holidays': 'छुट्टियों सहित सभी दिन खुला',
+    'footer.hours.weekdays': 'मंगलवार - रविवार (सोमवार बंद)',
+  
 
     // Common
     'common.learnmore': 'और जानें',
@@ -1736,8 +1736,7 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.rights': 'सर्व हक्क राखीव',
     'footer.privacy': 'गोपनीयता धोरण',
     'footer.terms': 'सेवा अटी',
-    'footer.hours.weekdays': 'सोमवार - रविवार',
-    'footer.hours.holidays': 'सुट्टीच्या दिवशी देखील सर्व दिवस उघडे',
+    'footer.hours.weekdays': 'मंगळवार - रविवार (सोमवार बंद)',
 
     // Common
     'common.learnmore': 'अधिक जाणून घ्या',
