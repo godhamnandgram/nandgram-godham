@@ -1,3 +1,9 @@
+// Key changes to fix flickering:
+// 1. Pause autoplay when user is actively scrolling
+// 2. Smoother transition timing
+// 3. Better initial state handling
+// 4. Scroll-aware carousel control
+
 import { Camera, TreePine, Waves, Ship, Shield, PartyPopper, Image, ArrowRight, Sparkles, MapPin, Clock, Users, Star, Heart, Zap, Award, ChevronLeft, ChevronRight, Home } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
@@ -14,12 +20,27 @@ const Experiences = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [activeCarousels, setActiveCarousels] = useState({});
   const [visibleSections, setVisibleSections] = useState(new Set([0]));
+  const [isScrolling, setIsScrolling] = useState(false);
+  const scrollTimeoutRef = useRef<number | null>(null);
 
-  // Optimized scroll handler with throttling
+  // Optimized scroll handler with throttling + scroll detection
   useEffect(() => {
     let ticking = false;
 
     const handleScroll = () => {
+      // Mark as scrolling
+      setIsScrolling(true);
+      
+      // Clear existing timeout
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+      
+      // Set timeout to mark scrolling as finished
+      scrollTimeoutRef.current = window.setTimeout(() => {
+        setIsScrolling(false);
+      }, 150); // Wait 150ms after scroll stops
+
       if (!ticking) {
         window.requestAnimationFrame(() => {
           const windowHeight = window.innerHeight;
@@ -34,7 +55,12 @@ const Experiences = () => {
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+    };
   }, []);
 
   // Intersection Observer for lazy loading sections
@@ -226,6 +252,7 @@ const Experiences = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isAutoPlay, setIsAutoPlay] = useState(true);
     const [loadedImages, setLoadedImages] = useState(new Set([0]));
+    const [isInitialized, setIsInitialized] = useState(false);
 
     useEffect(() => {
       if (activeCarousels[expKey] !== undefined) {
@@ -240,18 +267,28 @@ const Experiences = () => {
         imagesToLoad.add((currentIndex - 1 + images.length) % images.length);
         imagesToLoad.add((currentIndex + 1) % images.length);
         setLoadedImages(imagesToLoad);
+        
+        // Mark as initialized after first load
+        if (!isInitialized) {
+          setTimeout(() => setIsInitialized(true), 100);
+        }
       }
-    }, [currentIndex, isVisible, images.length, loadedImages]);
+    }, [currentIndex, isVisible, images.length]);
 
+    // AUTO-PLAY LOGIC - ONLY when:
+    // 1. Carousel is visible
+    // 2. User is NOT scrolling
+    // 3. User is NOT hovering
+    // 4. Carousel is initialized
     useEffect(() => {
-      if (!isAutoPlay || !isVisible) return;
+      if (!isAutoPlay || !isVisible || isScrolling || !isInitialized) return;
 
       const interval = setInterval(() => {
         handleCarouselChange(expKey, 'next');
-      }, 2500);
+      }, 3000); // Slower autoplay (3 seconds instead of 2.5)
 
       return () => clearInterval(interval);
-    }, [isAutoPlay, expKey, isVisible]);
+    }, [isAutoPlay, expKey, isVisible, isScrolling, isInitialized]);
 
     const getImageStyle = (index) => {
       const total = images.length;
@@ -299,7 +336,7 @@ const Experiences = () => {
               return (
                 <div
                   key={index}
-                  className="absolute transition-all duration-700 ease-out cursor-pointer will-change-transform"
+                  className="absolute transition-all duration-1000 ease-out cursor-pointer will-change-transform"
                   style={{
                     ...getImageStyle(index),
                     transformStyle: 'preserve-3d',
@@ -399,14 +436,12 @@ const Experiences = () => {
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* UPDATED: Use font-display instead of editorial-title */
   .font-display {
     line-height: 1.5;
     padding-top: 0.2em;
     padding-bottom: 0.15em;
   }
 
-  /* Fix for Devanagari script */
   [lang="hi"] .font-display,
   [lang="mr"] .font-display {
     font-family: 'Noto Sans Devanagari', system-ui, sans-serif;
@@ -422,7 +457,6 @@ const Experiences = () => {
     line-height: 1.7;
   }
 
-  /* Fix for Devanagari in body text */
   [lang="hi"] .modern-body,
   [lang="mr"] .modern-body {
     font-family: 'Noto Sans Devanagari', sans-serif;
@@ -448,7 +482,6 @@ const Experiences = () => {
     border: 1px solid rgba(255, 255, 255, 0.2);
   }
 
-  /* Fix gradient text clipping for Devanagari */
   .gradient-text {
     background: linear-gradient(135deg, #10b981 0%, #059669 100%);
     -webkit-background-clip: text;
@@ -483,7 +516,6 @@ const Experiences = () => {
     z-index: 2;
   }
 
-  /* Prevent text overflow/clipping */
   h1, h2, h3, h4, h5, h6 {
     overflow: visible !important;
   }
@@ -612,7 +644,7 @@ const Experiences = () => {
         <div className="relative container mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center">
 
-            {/* Heading - Updated sizes to match Home */}
+            {/* Heading */}
             <h2 className="font-display text-2xl md:text-3xl font-semibold leading-[1.5] mb-6 pt-2">
               <span className="block mb-4 leading-[1.5]">
                 {t('section.visit.title')}
@@ -622,7 +654,7 @@ const Experiences = () => {
               </span>
             </h2>
 
-            {/* Description - Updated to match Home */}
+            {/* Description */}
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-10">
               {t('section.visit.desc')}
             </p>
