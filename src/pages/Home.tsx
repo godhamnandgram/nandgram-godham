@@ -1006,7 +1006,9 @@ SECTION 4: WHO IS NANDGRAM GODAM FOR? – COMPACT IMAGE GRID
             shadow-md hover:shadow-lg
             transition-all
           ">
+            <Link to="/plan-your-visit">
                   {t('section.package.cta')}
+                  </Link>
                 </button>
               </div>
 
