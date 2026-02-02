@@ -612,12 +612,12 @@ const Home = () => {
 
   // Section 3: Signature Experiences
   const signatureExperiences = [
-    { nameKey: 'exp.aplegaon', descKey: 'exp.aplegaon.descp', size: 'large', path: '/experiences/aaple-gaon' },
+    { nameKey: 'exp.aplegaon', descKey: 'exp.aplegaon.desc', size: 'large', path: '/experiences/aaple-gaon' },
     { nameKey: 'exp.piccity', descKey: 'exp.piccity.descp', size: 'medium', path: '/experiences/pic-city' },
     { nameKey: 'exp.shauryavan', descKey: 'exp.shauryavan.descp', size: 'medium', path: '/experiences/shauryavan' },
     { nameKey: 'exp.waterpark', descKey: 'exp.waterpark.descp', size: 'large', path: '/experiences/waterpark' },
     { nameKey: 'exp.gautirth', descKey: 'exp.gautirth.descp', size: 'small', path: '/experiences/gautirth' },
-    { nameKey: 'exp.carnival', descKey: 'exp.carnival.descp', size: 'medium', path: '/experiences/carnival-street' },
+    { nameKey: 'exp.carnival', descKey: 'exp.carnival.desc', size: 'medium', path: '/experiences/carnival-street' },
     { nameKey: 'exp.pixopark', descKey: 'exp.pixopark.descp', size: 'small', path: '/experiences/pixo-park' },
     { nameKey: 'exp.swimmingpool', descKey: 'exp.swimmingpool.descp', size: 'small', path: '/experiences/swimming-pool' },
     { nameKey: 'exp.tents', descKey: 'exp.tents.descp', size: 'medium', path: '/experiences/tents-cottages' },
