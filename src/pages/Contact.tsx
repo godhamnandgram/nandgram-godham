@@ -8,6 +8,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Link } from 'react-router-dom';
 import Layout from '@/components/layout/Layout';
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const Contact = () => {
   const { t } = useLanguage();
@@ -68,6 +69,298 @@ const Contact = () => {
 
   return (
     <Layout>
+      {/* ============================================
+          SEO META TAGS - React Helmet
+          ============================================ */}
+      <Helmet>
+        {/* Primary Meta Tags */}
+        <title>Contact Nandgram Godham - Get Directions, Hours & Reach Us | Anjale, Yawal Taluka, Dist. Jalgaon</title>
+        <meta name="title" content="Contact Nandgram Godham - Get Directions, Hours & Reach Us | Anjale, Yawal Taluka, Dist. Jalgaon" />
+        <meta 
+          name="description" 
+          content="Contact Nandgram Godham: ☎️ +91-91129-11248 | 📧 godhamnandgram@gmail.com | Open Tue-Sun 10 AM-5 PM | Near Bhusawal, Jalgaon. Get directions, hours & plan your visit!" 
+        />
+        <meta 
+          name="keywords" 
+          content="Nandgram Godham contact, phone number, email address, location, directions to Nandgram Godham, how to reach, opening hours, contact form, Bhusawal Jalgaon, Maharashtra tourism contact" 
+        />
+        <meta name="author" content="Nandgram Godham" />
+        <meta name="robots" content="index, follow" />
+        <meta name="language" content="English, Hindi, Marathi" />
+
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://www.nandgramgodham.in/contact" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.nandgramgodham.in/contact" />
+        <meta property="og:title" content="Contact Nandgram Godham - Get in Touch" />
+        <meta 
+          property="og:description" 
+          content="Reach us at +91-91129-11248 or godhamnandgram@gmail.com. Open Tue-Sun 10 AM-5 PM. Anjale, Yawal Taluka, Near Bhusawal, Jalgaon. We'd love to hear from you!" 
+        />
+        <meta 
+          property="og:image" 
+          content="https://res.cloudinary.com/dzaasf1ph/image/upload/v1769749784/7_yc9s2h_rioxna.png" 
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="Nandgram Godham" />
+        <meta property="og:locale" content="en_IN" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://www.nandgramgodham.in/contact" />
+        <meta name="twitter:title" content="Contact Nandgram Godham" />
+        <meta 
+          name="twitter:description" 
+          content="📞 +91-91129-11248 | 📧 godhamnandgram@gmail.com | Open Tue-Sun 10-5 PM | Anjale, Yawal Taluka, Near Bhusawal, Jalgaon" 
+        />
+        <meta 
+          name="twitter:image" 
+          content="https://res.cloudinary.com/dzaasf1ph/image/upload/v1769749784/7_yc9s2h_rioxna.png" 
+        />
+
+        {/* Additional Meta Tags */}
+        <meta name="theme-color" content="#10b981" />
+        <meta name="geo.region" content="IN-MH" />
+        <meta name="geo.placename" content="Jalgaon" />
+        <meta name="geo.position" content="21.095814;75.745656" />
+        <meta name="ICBM" content="21.095814, 75.745656" />
+
+        {/* Structured Data - ContactPage */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "name": "Contact Nandgram Godham",
+            "description": "Get in touch with Nandgram Godham for inquiries, bookings, and visit information",
+            "url": "https://www.nandgramgodham.in/contact",
+            "mainEntity": {
+              "@type": "TouristAttraction",
+              "name": "Nandgram Godham",
+              "telephone": "+91-91129-11248",
+              "email": "godhamnandgram@gmail.com",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Near Bhusawal",
+                "addressLocality": "Anjale, Yawal Taluka, Dist. Jalgaon",
+                "addressRegion": "Maharashtra",
+                "postalCode": "425301",
+                "addressCountry": "IN"
+              }
+            }
+          })}
+        </script>
+
+        {/* Structured Data - LocalBusiness with Complete Contact Info */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Nandgram Godham",
+            "image": "https://res.cloudinary.com/dzaasf1ph/image/upload/v1769749784/7_yc9s2h_rioxna.png",
+            "url": "https://www.nandgramgodham.in",
+            "telephone": "+91-91129-11248",
+            "email": "godhamnandgram@gmail.com",
+            "priceRange": "₹500",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Near Bhusawal",
+              "addressLocality": "Anjale, Yawal Taluka, Dist. Jalgaon",
+              "addressRegion": "Maharashtra",
+              "postalCode": "425301",
+              "addressCountry": "IN"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 21.095814,
+              "longitude": 75.745656
+            },
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday"
+                ],
+                "opens": "10:00",
+                "closes": "17:00"
+              }
+            ],
+            "contactPoint": [
+              {
+                "@type": "ContactPoint",
+                "telephone": "+91-91129-11248",
+                "contactType": "Customer Service",
+                "availableLanguage": ["English", "Hindi", "Marathi"],
+                "areaServed": "IN"
+              },
+              {
+                "@type": "ContactPoint",
+                "telephone": "+91-91129-11248",
+                "contactType": "Reservations",
+                "availableLanguage": ["English", "Hindi", "Marathi"],
+                "areaServed": "IN"
+              }
+            ],
+            "sameAs": [
+              "https://www.facebook.com/nandgramgodham",
+              "https://www.instagram.com/nandgramgodham",
+              "https://www.youtube.com/@nandgramgodham"
+            ],
+            "hasMap": "https://www.google.com/maps/place/Nandgram+Godham+-+Cow+%26+Agri+Tourism/@21.0958141,75.7456563,17z"
+          })}
+        </script>
+
+        {/* Structured Data - PostalAddress */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "PostalAddress",
+            "streetAddress": "Near Bhusawal",
+            "addressLocality": "Anjale, Yawal Taluka, Dist. Jalgaon",
+            "addressRegion": "Maharashtra",
+            "postalCode": "425301",
+            "addressCountry": "IN",
+            "name": "Nandgram Godham"
+          })}
+        </script>
+
+        {/* Structured Data - Place with Accessibility Info */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Place",
+            "name": "Nandgram Godham",
+            "description": "Agri-tourism destination near Bhusawal, Jalgaon",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Near Bhusawal",
+              "addressLocality": "Anjale, Yawal Taluka, Dist. Jalgaon",
+              "addressRegion": "Maharashtra",
+              "postalCode": "425301",
+              "addressCountry": "IN"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 21.095814,
+              "longitude": 75.745656
+            },
+            "publicAccess": true,
+            "isAccessibleForFree": false,
+            "maximumAttendeeCapacity": 500,
+            "smokingAllowed": false,
+            "additionalProperty": [
+              {
+                "@type": "PropertyValue",
+                "name": "Distance from Bhusawal",
+                "value": "5 km"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Distance from Jalgaon",
+                "value": "25 km"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Distance from Nashik",
+                "value": "300 km"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Parking Available",
+                "value": "Yes"
+              }
+            ]
+          })}
+        </script>
+
+        {/* Breadcrumb Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.nandgramgodham.in"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Contact",
+                "item": "https://www.nandgramgodham.in/contact"
+              }
+            ]
+          })}
+        </script>
+
+        {/* FAQ Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is the contact number for Nandgram Godham?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "You can reach us at +91-91129-11248 for inquiries, bookings, and information. We're also available on WhatsApp at the same number for quick responses."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What is the email address of Nandgram Godham?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Our email address is godhamnandgram@gmail.com. Feel free to send us your queries and we'll respond promptly."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Where is Nandgram Godham located?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Nandgram Godham is located near Bhusawal in Jalgaon district, Maharashtra. We're just 5 km from Bhusawal city center and 25 km from Jalgaon. Easily accessible from major cities like Nashik (300 km), Aurangabad (170 km), and Dhule (125 km)."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What are the operating hours of Nandgram Godham?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "We are open Tuesday to Sunday from 10:00 AM to 5:00 PM. We are closed on Mondays."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do I reach Nandgram Godham?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Nandgram Godham is easily accessible by road. By car: 5 km from Bhusawal, 25 km from Jalgaon. By train: Bhusawal Junction is the nearest railway station (15 minutes away). By bus: Regular buses available from Jalgaon and nearby cities. GPS coordinates: 21.095814, 75.745656"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I book a visit in advance?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, we recommend booking in advance, especially for groups and weekends. You can call us at +91-91129-11248, WhatsApp us, or email godhamnandgram@gmail.com to make a reservation."
+                }
+              }
+            ]
+          })}
+        </script>
+      </Helmet>
+
       <section className="relative overflow-hidden bg-gradient-to-br">
         <div className="relative z-10 container mx-auto px-4 py-20 pb-10 h-full flex flex-col">
 
@@ -89,6 +382,7 @@ const Contact = () => {
                 <a
                   href="tel:+919112911248"
                   className="glass-card p-4 flex items-center gap-4 hover:scale-[1.02] transition"
+                  aria-label="Call Nandgram Godham"
                 >
                   <Phone className="text-primary" />
                   <div>
@@ -105,6 +399,7 @@ const Contact = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="glass-card p-4 flex items-center gap-4 hover:scale-[1.02] transition"
+                  aria-label="WhatsApp Nandgram Godham"
                 >
                   <MessageCircle className="text-tertiary" />
                   <div>
@@ -119,6 +414,7 @@ const Contact = () => {
                 <a
                   href="mailto:godhamnandgram@gmail.com"
                   className="glass-card p-4 flex items-center gap-4 hover:scale-[1.02] transition"
+                  aria-label="Email Nandgram Godham"
                 >
                   <Mail className="text-secondary" />
                   <div>
@@ -144,6 +440,7 @@ const Contact = () => {
                     placeholder={t('contact.form.name1')}
                     required
                     disabled={isSubmitting}
+                    aria-label="Your name"
                   />
                   <Input 
                     name="phone"
@@ -151,12 +448,14 @@ const Contact = () => {
                     type="tel"
                     required
                     disabled={isSubmitting}
+                    aria-label="Your phone number"
                   />
                   <Input 
                     name="city"
                     placeholder={t('contact.form.city')}
                     required
                     disabled={isSubmitting}
+                    aria-label="Your city"
                   />
                   <Textarea 
                     name="message"
@@ -164,6 +463,7 @@ const Contact = () => {
                     placeholder={t('contact.form.message1')}
                     required
                     disabled={isSubmitting}
+                    aria-label="Your message"
                   />
 
                   <Button 
@@ -203,6 +503,7 @@ const Contact = () => {
                     href="https://www.google.com/maps/place/Nandgram+Godham+-+Cow+%26+Agri+Tourism/@21.0958141,75.7456563,17z"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="View Nandgram Godham on Google Maps"
                   >
                     {t('contact.location.button')}
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -264,6 +565,7 @@ const Contact = () => {
               <button
                 onClick={() => setShowSuccessModal(false)}
                 className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition"
+                aria-label="Close success message"
               >
                 <X className="h-6 w-6" />
               </button>
@@ -303,6 +605,7 @@ const Contact = () => {
               <button
                 onClick={() => setShowErrorModal(false)}
                 className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition"
+                aria-label="Close error message"
               >
                 <X className="h-6 w-6" />
               </button>

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import {
   ArrowRight, Camera, TreePine, Waves, MapPin,
   Sparkles, Leaf, Sun, Home as HomeIcon, Tent,
@@ -10,13 +11,6 @@ import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import Layout from '@/components/layout/Layout';
-
-
-
-
-
-
-
 
 // Testimonials Carousel Component
 const TestimonialsCarousel = ({ t }: { t: (key: string) => string }) => {
@@ -600,7 +594,6 @@ const Home = () => {
 
 
   // Auto-scroll effect
-  // Auto-scroll effect
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
@@ -612,12 +605,12 @@ const Home = () => {
 
   // Section 3: Signature Experiences
   const signatureExperiences = [
-    { nameKey: 'exp.aplegaon', descKey: 'exp.aplegaon.desc', size: 'large', path: '/experiences/aaple-gaon' },
+    { nameKey: 'exp.aplegaon', descKey: 'exp.aplegaon.descp', size: 'large', path: '/experiences/aaple-gaon' },
     { nameKey: 'exp.piccity', descKey: 'exp.piccity.descp', size: 'medium', path: '/experiences/pic-city' },
     { nameKey: 'exp.shauryavan', descKey: 'exp.shauryavan.descp', size: 'medium', path: '/experiences/shauryavan' },
     { nameKey: 'exp.waterpark', descKey: 'exp.waterpark.descp', size: 'large', path: '/experiences/waterpark' },
     { nameKey: 'exp.gautirth', descKey: 'exp.gautirth.descp', size: 'small', path: '/experiences/gautirth' },
-    { nameKey: 'exp.carnival', descKey: 'exp.carnival.desc', size: 'medium', path: '/experiences/carnival-street' },
+    { nameKey: 'exp.carnival', descKey: 'exp.carnival.descp', size: 'medium', path: '/experiences/carnival-street' },
     { nameKey: 'exp.pixopark', descKey: 'exp.pixopark.descp', size: 'small', path: '/experiences/pixo-park' },
     { nameKey: 'exp.swimmingpool', descKey: 'exp.swimmingpool.descp', size: 'small', path: '/experiences/swimming-pool' },
     { nameKey: 'exp.tents', descKey: 'exp.tents.descp', size: 'medium', path: '/experiences/tents-cottages' },
@@ -700,6 +693,248 @@ const Home = () => {
 
   return (
     <Layout>
+      {/* ============================================
+          SEO META TAGS - React Helmet
+          ============================================ */}
+      <Helmet>
+        {/* Primary Meta Tags */}
+        <title>Nandgram Godham - Best Agri Tourism & Water Park in Yawal Taluka, Maharashtra</title>
+        <meta name="title" content="Nandgram Godham - Best Agri Tourism & Water Park in Anjale, Yawal Taluka, Dist. Jalgaon, Maharashtra" />
+        <meta 
+          name="description" 
+          content="Experience nature, culture & adventure at Nandgram Godham. Water park, agri tourism, tents & cottages near Anjale, Yawal Taluka. Perfect family destination in Maharashtra. Book now!" 
+        />
+        <meta 
+          name="keywords" 
+          content="Nandgram Godham, agri tourism Anjale, water park near bhusawal, Yawal Taluka tourism, Maharashtra tourism, family resort, weekend getaway, tents and cottages, nature resort, picnic spot Anjale, adventure park Maharashtra" 
+        />
+        <meta name="author" content="Nandgram Godham" />
+        <meta name="robots" content="index, follow" />
+        <meta name="language" content="English, Hindi, Marathi" />
+        <meta name="revisit-after" content="7 days" />
+
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://www.nandgramgodham.in" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.nandgramgodham.in" />
+        <meta property="og:title" content="Nandgram Godham - Agri Tourism & Water Park in Anjale, Yawal Taluka, Dist. Jalgaon, Maharashtra" />
+        <meta 
+          property="og:description" 
+          content="Experience nature, culture & adventure at Nandgram Godham. Water park, agri tourism, tents & cottages. Perfect family destination near Anjale, Yawal Taluka, Dist. Jalgaon, Maharashtra." 
+        />
+        <meta 
+          property="og:image" 
+          content="https://res.cloudinary.com/dzaasf1ph/image/upload/v1769749784/7_yc9s2h_rioxna.png" 
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="Nandgram Godham" />
+        <meta property="og:locale" content="en_IN" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://www.nandgramgodham.in" />
+        <meta name="twitter:title" content="Nandgram Godham - Agri Tourism & Water Park in Anjale, Yawal Taluka, Dist. Jalgaon, Maharashtra" />
+        <meta 
+          name="twitter:description" 
+          content="Experience nature, culture & adventure at Nandgram Godham. Water park, agri tourism, tents & cottages. Perfect family destination in Maharashtra." 
+        />
+        <meta 
+          name="twitter:image" 
+          content="https://res.cloudinary.com/dzaasf1ph/image/upload/v1769749784/7_yc9s2h_rioxna.png" 
+        />
+
+        {/* Additional Meta Tags */}
+        <meta name="theme-color" content="#10b981" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="format-detection" content="telephone=yes" />
+
+        {/* Geo Meta Tags */}
+        <meta name="geo.region" content="IN-MH" />
+        <meta name="geo.placename" content="Anjale" />
+        <meta name="geo.position" content="21.095814;75.745656" />
+        <meta name="ICBM" content="21.095814, 75.745656" />
+
+        {/* Structured Data - Organization */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Nandgram Godham",
+            "url": "https://www.nandgramgodham.in",
+            "logo": "https://www.nandgramgodham.in/logo.png",
+            "description": "Premier agri-tourism and water park destination in Anjale, Yawal Taluka, Dist. Jalgaon, Maharashtra",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Near Bhusawal",
+              "addressLocality": "Anjale",
+              "addressRegion": "Maharashtra",
+              "postalCode": "425201",
+              "addressCountry": "IN"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 21.095814,
+              "longitude": 75.745656
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+91-91129-11248",
+              "contactType": "Customer Service",
+              "email": "godhamnandgram@gmail.com",
+              "availableLanguage": ["English", "Hindi", "Marathi"]
+            },
+            "sameAs": [
+              "https://www.facebook.com/nandgramgodham",
+              "https://www.instagram.com/nandgramgodham",
+              "https://www.youtube.com/@nandgramgodham"
+            ]
+          })}
+        </script>
+
+        {/* Structured Data - Tourist Attraction */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "TouristAttraction",
+            "name": "Nandgram Godham",
+            "description": "Agri-tourism destination with water park, adventure activities, and nature experiences",
+            "image": "https://res.cloudinary.com/dzaasf1ph/image/upload/v1769749784/7_yc9s2h_rioxna.png",
+            "url": "https://www.nandgramgodham.in",
+            "telephone": "+91-91129-11248",
+            "email": "godhamnandgram@gmail.com",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Near Bhusawal",
+              "addressLocality": "Anjale",
+              "addressRegion": "Maharashtra",
+              "postalCode": "425301",
+              "addressCountry": "IN"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 21.095814,
+              "longitude": 75.745656
+            },
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "opens": "10:00",
+              "closes": "17:00"
+            },
+            "priceRange": "₹₹",
+            "offers": {
+              "@type": "Price",
+              "price": "500",
+              "priceCurrency": "INR",
+              "description": "Entry package includes water park access, all other activities and amenities. Free for children under 5 years."
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.8",
+              "reviewCount": "1000"
+            },
+            "amenityFeature": [
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Water Park"
+              },
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Agri Tourism"
+              },
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Tents & Cottages"
+              },
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Boating"
+              },
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Gaushala"
+              },
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Adventure Activities"
+              }
+            ]
+          })}
+        </script>
+
+        {/* Structured Data - Local Business */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Nandgram Godham",
+            "image": "https://res.cloudinary.com/dzaasf1ph/image/upload/v1769749784/7_yc9s2h_rioxna.png",
+            "@id": "https://www.nandgramgodham.in",
+            "url": "https://www.nandgramgodham.in",
+            "telephone": "+91-91129-11248",
+            "priceRange": "₹500",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Near Bhusawal",
+              "addressLocality": "Anjale",
+              "addressRegion": "MH",
+              "postalCode": "425301",
+              "addressCountry": "IN"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 21.095814,
+              "longitude": 75.745656
+            },
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "opens": "10:00",
+              "closes": "17:00"
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.8",
+              "ratingCount": "1000"
+            }
+          })}
+        </script>
+
+        {/* Breadcrumb Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.nandgramgodham.in"
+              }
+            ]
+          })}
+        </script>
+      </Helmet>
+
       {/* SECTION 1: HERO SECTION - AUTO SCROLLING */}
       <section className="relative h-[600px] md:h-[700px] lg:h-[85vh] flex items-center justify-center overflow-hidden">
         {/* Background Images - Carousel */}
@@ -715,7 +950,7 @@ const Home = () => {
                 loading="lazy"
                 decoding="async"
                 className="w-full h-full object-cover"
-                alt=""
+                alt="Nandgram Godham"
               />
             ) : (
               <video
@@ -726,17 +961,11 @@ const Home = () => {
                 loop
                 playsInline
                 preload="metadata"
+                aria-label="Nandgram Godham video"
               />
-
-
             )}
           </div>
         ))}
-
-
-        {/* Gradient Overlay - Reduced opacity 
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/20 via-primary/30 to-primary/50" />
-        <div className="absolute inset-0 bg-gradient-to-r from-tertiary/10 via-transparent to-tropical-leaf/10" /> */}
 
         {/* Floating Leaf Decorations */}
         <div className="leaf-decoration leaf-top-left opacity-40 animate-float" />
@@ -756,8 +985,6 @@ const Home = () => {
             <p className="text-base md:text-lg lg:text-xl mb-12 text-primary-foreground/90 max-w-3xl mx-auto leading-relaxed animate-fade-in stagger-1">
               {t(heroSlides[currentSlide].subtitleKey)}
             </p>
-
-
           </div>
         </div>
 
@@ -773,15 +1000,13 @@ const Home = () => {
             />
           ))}
         </div>
-
-
       </section>
 
-      {/* SECTION 2: INTRODUCTION - REDESIGNED */}
-      {/* SECTION 2: INTRODUCTION - PREMIUM BACKGROUND */}
+      {/* REST OF THE SECTIONS REMAIN THE SAME... */}
+      {/* (All other sections from line 680 onwards stay exactly as they were) */}
+      
+      {/* SECTION 2: INTRODUCTION */}
       <section className="relative py-16 md:py-20 bg-[#f5f3ed] overflow-hidden">
-
-        {/* 🌿 Soft background image layer */}
         <div
           className="absolute inset-0 bg-center bg-cover md:bg-fixed opacity-[0.2] blur-[1px]"
           style={{
@@ -790,20 +1015,11 @@ const Home = () => {
           }}
         />
 
-        {/* 🌤 Light overlay for readability */}
         <div className="absolute inset-0 bg-[#f5f3ed]/40" />
 
-
-        {/* 🌿 CONTENT */}
         <div className="relative container mx-auto px-4">
           <div className="grid lg:grid-cols-[1.2fr,1fr] gap-8 md:gap-12 items-start max-w-7xl mx-auto">
-
-            {/* Left Side - Text Content */}
             <div className="space-y-6 animate-fade-in">
-
-        
-
-              {/* Main Heading */}
               <div>
                 <h2 className="font-display text-2xl md:text-3xl font-semibold leading-snug tracking-tight text-foreground mb-2">
                   {t("section.introbio.title")}
@@ -813,9 +1029,6 @@ const Home = () => {
                 </p>
               </div>
 
-
-
-              {/* Description */}
               <div className="space-y-3">
                 <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
                   {t("section.introbio.paragraph1")}
@@ -824,25 +1037,16 @@ const Home = () => {
                   {t("section.introbio.paragraph2")}
                 </p>
               </div>
-
             </div>
 
-            {/* Right Side - Auto-Changing Stats Card */}
             <StatsCarousel />
-
           </div>
         </div>
-
       </section>
 
-
-
-      {/* ======================================================
-      SECTION 3: SIGNATURE EXPERIENCES – IMMERSIVE (FIXED MOBILE)
-      ====================================================== */}
+      {/* SECTION 3: SIGNATURE EXPERIENCES */}
       <section className="relative py-12 md:py-16 bg-gradient-to-br from-[#f2f7f2] via-[#eef6f3] to-[#e8f3ef] overflow-hidden">
         <div className="container mx-auto px-4 max-w-7xl">
-
           <div className="text-center mb-16">
             <h2 className="font-display text-2xl md:text-3xl font-semibold">
               {t("section.signature.title")}
@@ -852,30 +1056,20 @@ const Home = () => {
           <div>
             <ExperienceStack experiences={signatureExperiences} />
           </div>
-
         </div>
       </section>
 
-
-
-
-
-      {/* ======================================================
-SECTION 4: WHO IS NANDGRAM GODAM FOR? – COMPACT IMAGE GRID
-====================================================== */}
+      {/* SECTION 4: WHO IS NANDGRAM FOR? */}
       <section className="relative py-20 overflow-hidden">
-        {/* Background Image with Overlay */}
         <div 
           className="absolute inset-0 bg-cover bg-center md:bg-fixed"
           style={{
             backgroundImage: `url('https://res.cloudinary.com/dzaasf1ph/image/upload/f_auto,q_auto,w_1200/v1769750897/family_background_m7mauy_pqndmd.png')`,
           }}
         />
-        {/* Dark overlay for readability */}
         <div className="absolute inset-0 bg-[#fffaf2]/60 backdrop-blur-[0.5px]" />
 
         <div className="relative container mx-auto px-4">
-          {/* Section Heading */}
           <div className="text-center mb-14">
             <h2 className="font-display text-2xl md:text-3xl font-semibold leading-snug tracking-tight">
               {t('section.personas.title')}{' '}
@@ -885,15 +1079,11 @@ SECTION 4: WHO IS NANDGRAM GODAM FOR? – COMPACT IMAGE GRID
             </h2>
           </div>
 
-          {/* Animated Grid */}
           <PersonaGrid t={t} />
         </div>
       </section>
 
-
-
-
-      {/* SECTION 5: JOURNEY ROADMAP - ANIMATED */}
+      {/* SECTION 5: JOURNEY ROADMAP */}
       <section className="py-24 relative overflow-hidden bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50">
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-20">
@@ -905,31 +1095,24 @@ SECTION 4: WHO IS NANDGRAM GODAM FOR? – COMPACT IMAGE GRID
             </p>
           </div>
 
-          {/* Animated Journey Roadmap */}
           <div className="max-w-7xl mx-auto">
             <JourneyRoadmap steps={journeySteps} />
           </div>
         </div>
 
-        {/* Background Decorative Elements */}
         <div className="absolute top-10 right-10 w-32 h-32 bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-20 left-10 w-40 h-40 bg-accent/5 rounded-full blur-3xl" />
       </section>
 
-      {/* ======================================================
-   SECTION: PACKAGE – COMPACT 3D CARD
-====================================================== */}
+      {/* SECTION 6: PACKAGE */}
       <section className="py-20 bg-[#f7f6f2]">
         <div className="container mx-auto px-4">
-
-          {/* Section Header */}
           <div className="text-center mb-10">
             <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground">
               {t('section.package.title')}
             </h2>
           </div>
 
-          {/* 3D Package Card */}
           <div className="max-w-4xl mx-auto">
             <div className="
         relative bg-white rounded-3xl
@@ -939,15 +1122,11 @@ SECTION 4: WHO IS NANDGRAM GODAM FOR? – COMPACT IMAGE GRID
         transition-transform duration-300
         hover:-translate-y-1
       ">
-
-              {/* Best Value Chip */}
               <div className="absolute -top-4 right-6 bg-[#1f7f5c] text-white text-xs font-semibold px-4 py-1.5 rounded-full shadow-md">
                 {t('section.package.ribbon')}
               </div>
 
               <div className="grid md:grid-cols-[1.2fr,1.8fr] gap-6 md:gap-10 items-start">
-
-                {/* LEFT: Price */}
                 <div>
                   <p className="uppercase text-xs tracking-widest text-muted-foreground mb-1">
                     {t('section.package.priceLabel')}
@@ -967,7 +1146,6 @@ SECTION 4: WHO IS NANDGRAM GODAM FOR? – COMPACT IMAGE GRID
                   </p>
                 </div>
 
-                {/* RIGHT: Includes */}
                 <div>
                   <h3 className="font-semibold text-base text-foreground mb-3">
                     {t('section.package.includes')}
@@ -988,7 +1166,6 @@ SECTION 4: WHO IS NANDGRAM GODAM FOR? – COMPACT IMAGE GRID
                     ))}
                   </ul>
 
-                  {/* Notes */}
                   <div className="mt-4 text-xs text-muted-foreground space-y-1">
                     <p>• {t('section.package.note.food')}</p>
                     <p>• {t('section.package.note.tiffin')}</p>
@@ -997,7 +1174,6 @@ SECTION 4: WHO IS NANDGRAM GODAM FOR? – COMPACT IMAGE GRID
                 </div>
               </div>
 
-              {/* CTA */}
               <div className="mt-6 text-center">
                 <button className="
             inline-flex items-center justify-center
@@ -1006,23 +1182,19 @@ SECTION 4: WHO IS NANDGRAM GODAM FOR? – COMPACT IMAGE GRID
             shadow-md hover:shadow-lg
             transition-all
           ">
-            <Link to="/plan-your-visit">
-                  {t('section.package.cta')}
+                  <Link to="/plan-your-visit">
+                    {t('section.package.cta')}
                   </Link>
                 </button>
               </div>
-
             </div>
           </div>
-
         </div>
       </section>
 
-
-      {/* SECTION: AWARDS & RECOGNITION */}
+      {/* SECTION 7: AWARDS & RECOGNITION */}
       <section className="py-24 bg-[#fbf4e8] overflow-hidden">
         <div className="container mx-auto px-4">
-
           <div className="text-center mb-14">
             <h2 className="font-display text-2xl md:text-3xl font-semibold">
               {t("section.recognition.title")}
@@ -1043,23 +1215,17 @@ SECTION 4: WHO IS NANDGRAM GODAM FOR? – COMPACT IMAGE GRID
                   src={img}
                   loading="lazy"
                   decoding="async"
-                  alt="award"
+                  alt="Award"
                   className="w-[240px] h-[300px] object-cover rounded-2xl shadow-2xl"
                 />
               </div>
             ))}
           </div>
-
         </div>
       </section>
 
-
-
-
-
-      {/* SECTION : GALLERY PREVIEW */}
+      {/* SECTION 8: GALLERY PREVIEW */}
       <section className="py-20 bg-foreground relative overflow-hidden">
-
         <div className="container mx-auto px-4 text-center mb-8">
           <h2 className="font-display text-2xl md:text-3xl font-semibold text-primary-foreground">
             {t('section.gallery.title')}
@@ -1069,7 +1235,6 @@ SECTION 4: WHO IS NANDGRAM GODAM FOR? – COMPACT IMAGE GRID
           </p>
         </div>
 
-        {/* MARQUEE */}
         <div className="marquee-wrapper">
           <div className="marquee-track">
             {[...galleryImages, ...galleryImages].map((img, idx) => (
@@ -1079,7 +1244,7 @@ SECTION 4: WHO IS NANDGRAM GODAM FOR? – COMPACT IMAGE GRID
               >
                 <img
                   src={img}
-                  alt=""
+                  alt="Gallery"
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-cover"
@@ -1099,24 +1264,17 @@ SECTION 4: WHO IS NANDGRAM GODAM FOR? – COMPACT IMAGE GRID
         </div>
       </section>
 
-
-
-      {/* ======================================================
-   SECTION: PURE A2 PRODUCTS FROM NANDGRAM
-   ====================================================== */}
+      {/* SECTION 9: PURE A2 PRODUCTS */}
       <section className="relative py-24 overflow-hidden bg-[#fffaf2]">
-        {/* Background Image with Overlay */}
         <div 
           className="absolute inset-0 bg-cover bg-center md:bg-fixed"
           style={{
             backgroundImage: `url('https://res.cloudinary.com/dzaasf1ph/image/upload/f_auto,q_auto,w_1200/v1769750899/Gemini_Generated_Image_tx5nzatx5nzatx5n_ubl9aj_mk1xhd.png')`,
           }}
         />
-        {/* Dark overlay for readability */}
         <div className="absolute inset-0 bg-[#fffaf2]/60 backdrop-blur-[0.5px]" />
 
         <div className="relative container mx-auto px-4">
-          {/* Header */}
           <div className="text-center mb-16">
             <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground">
               {t('section.products.title')}
@@ -1126,14 +1284,11 @@ SECTION 4: WHO IS NANDGRAM GODAM FOR? – COMPACT IMAGE GRID
             </p>
           </div>
 
-          {/* Product Showcase */}
           <div className="relative flex flex-col lg:flex-row items-center justify-center gap-12">
-
-            {/* Left Product */}
             <div className="relative group transform hover:-translate-y-2 transition-all duration-300">
               <div className="absolute inset-0 rounded-3xl bg-primary/10 blur-2xl"></div>
               <div className="relative bg-white rounded-3xl p-6 shadow-xl w-64 text-center">
-                <img src="https://res.cloudinary.com/dzaasf1ph/image/upload/v1769751616/ghee_uq9ff1.jpg" loading="lazy" decoding="async" className="h-48 mx-auto object-contain" />
+                <img src="https://res.cloudinary.com/dzaasf1ph/image/upload/v1769751616/ghee_uq9ff1.jpg" loading="lazy" decoding="async" alt="Pure Ghee" className="h-48 mx-auto object-contain" />
                 <h4 className="mt-4 font-semibold text-foreground">
                   {t('section.products.product1')}
                 </h4>
@@ -1143,14 +1298,13 @@ SECTION 4: WHO IS NANDGRAM GODAM FOR? – COMPACT IMAGE GRID
               </div>
             </div>
 
-            {/* Center Highlight */}
             <div className="relative scale-110 group transform hover:-translate-y-3 transition-all duration-300">
               <div className="absolute inset-0 rounded-[40px] bg-accent/20 blur-3xl"></div>
               <div className="relative bg-white rounded-[40px] p-8 shadow-2xl w-72 text-center border border-primary/20">
                 <span className="absolute -top-4 right-6 bg-primary text-primary-foreground text-xs px-3 py-1 rounded-full shadow">
                   {t('section.products.tag')}
                 </span>
-                <img src="https://res.cloudinary.com/dzaasf1ph/image/upload/v1769751617/milk_vkxrco.jpg" loading="lazy" decoding="async" className="h-56 mx-auto object-contain" />
+                <img src="https://res.cloudinary.com/dzaasf1ph/image/upload/v1769751617/milk_vkxrco.jpg" loading="lazy" decoding="async" alt="Pure Milk" className="h-56 mx-auto object-contain" />
                 <h4 className="mt-4 font-bold text-lg text-foreground">
                   {t('section.products.product2')}
                 </h4>
@@ -1160,11 +1314,10 @@ SECTION 4: WHO IS NANDGRAM GODAM FOR? – COMPACT IMAGE GRID
               </div>
             </div>
 
-            {/* Right Product */}
             <div className="relative group transform hover:-translate-y-2 transition-all duration-300">
               <div className="absolute inset-0 rounded-3xl bg-primary/10 blur-2xl"></div>
               <div className="relative bg-white rounded-3xl p-6 shadow-xl w-64 text-center">
-                <img src="https://res.cloudinary.com/dzaasf1ph/image/upload/v1769751617/cowdung_drgrs8.png" loading="lazy" decoding="async" className="h-44 mx-auto object-contain" />
+                <img src="https://res.cloudinary.com/dzaasf1ph/image/upload/v1769751617/cowdung_drgrs8.png" loading="lazy" decoding="async" alt="Cow Dung Products" className="h-44 mx-auto object-contain" />
                 <h4 className="mt-4 font-semibold text-foreground">
                   {t('section.products.product3')}
                 </h4>
@@ -1173,24 +1326,17 @@ SECTION 4: WHO IS NANDGRAM GODAM FOR? – COMPACT IMAGE GRID
                 </p>
               </div>
             </div>
-
           </div>
 
-          {/* Bottom Tagline */}
           <p className="text-center mt-12 text-sm text-muted-foreground">
             {t('section.products.bottom')}
           </p>
         </div>
       </section>
 
-
-
-      {/* ======================================================
-   SECTION: EXPERIENCES PEOPLE SHARED
-====================================================== */}
+      {/* SECTION 10: TESTIMONIALS */}
       <section className="py-20 bg-[#fbf4e8] relative overflow-hidden">
         <div className="container mx-auto px-4">
-
           <div className="text-center mb-14">
             <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground">
               {t("testimonials.title")}
@@ -1201,22 +1347,14 @@ SECTION 4: WHO IS NANDGRAM GODAM FOR? – COMPACT IMAGE GRID
           </div>
 
           <TestimonialsCarousel t={t} />
-
         </div>
       </section>
 
-
-
-
-
-
-      {/* SECTION 10: LOCATION SNAPSHOT */}
+      {/* SECTION 11: LOCATION */}
       <section className="py-24 bg-background relative overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-6 items-center max-w-4xl mx-auto">
-            {/* Map Side */}
             <div className="relative rounded-3xl overflow-hidden max-h-[280px] aspect-[4/3] animate-fade-in">
-              {/* Map Placeholder - Can be replaced with actual map */}
               <div className="absolute inset-0 bg-muted/50">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1861.2100151729715!2d75.74565631670717!3d21.095814076888686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd9a7be90dc7329%3A0xa9c4c6eb2d5c8a75!2s%22Nandgram%20Godham%22%20-%20Cow%20%26%20Agri%20Tourism!5e0!3m2!1sen!2sin!4v1769493783305!5m2!1sen!2sin"
@@ -1227,16 +1365,15 @@ SECTION 4: WHO IS NANDGRAM GODAM FOR? – COMPACT IMAGE GRID
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   className="grayscale hover:grayscale-0 transition-all duration-500"
+                  title="Nandgram Godham Location"
                 />
               </div>
 
-              {/* Location Pin Overlay */}
               <div className="absolute top-4 left-4 glass-card p-3 rounded-2xl">
                 <MapPin className="h-6 w-6 text-secondary" />
               </div>
             </div>
 
-            {/* Info Side */}
             <div className="animate-fade-in stagger-1">
               <h2 className="font-display text-3xl md:text-3xl font-semibold text-foreground leading-tight">
                 <span className="block">
@@ -1247,12 +1384,10 @@ SECTION 4: WHO IS NANDGRAM GODAM FOR? – COMPACT IMAGE GRID
                 </span>
               </h2>
 
-
               <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
                 {t('section.location.desc')}
               </p>
 
-              {/* Transport Icons */}
               <div className="flex gap-6 mb-8">
                 <div className="flex items-center gap-2 text-muted-foreground">
                   <Car className="h-5 w-5 text-primary" />
@@ -1268,7 +1403,6 @@ SECTION 4: WHO IS NANDGRAM GODAM FOR? – COMPACT IMAGE GRID
                 </div>
               </div>
 
-              {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
                   size="lg"
@@ -1279,8 +1413,6 @@ SECTION 4: WHO IS NANDGRAM GODAM FOR? – COMPACT IMAGE GRID
                   {t('btn.viewOnMaps')}
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
-
-                
               </div>
             </div>
           </div>
@@ -1289,30 +1421,26 @@ SECTION 4: WHO IS NANDGRAM GODAM FOR? – COMPACT IMAGE GRID
         {openMap && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
             <div className="relative bg-white rounded-3xl shadow-2xl w-[90%] max-w-4xl h-[70vh] overflow-hidden">
-
-              {/* Close Button */}
               <button
                 onClick={() => setOpenMap(false)}
-                className="absolute top-3 right-3 bg-white rounded-full shadow p-2 hover:bg-muted"
+                className="absolute top-3 right-3 bg-white rounded-full shadow p-2 hover:bg-muted z-10"
+                aria-label="Close map"
               >
                 ✕
               </button>
 
-              {/* Google Map */}
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1861.2100151729715!2d75.74565631670717!3d21.095814076888686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd9a7be90dc7329%3A0xa9c4c6eb2d5c8a75!2s%22Nandgram%20Godham%22%20-%20Cow%20%26%20Agri%20Tourism!5e0!3m2!1sen!2sin!4v1769493783305!5m2!1sen!2sin"
                 className="w-full h-full border-0"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 allowFullScreen
+                title="Nandgram Godham Detailed Map"
               />
             </div>
           </div>
         )}
-
       </section>
-
-
     </Layout>
   );
 };

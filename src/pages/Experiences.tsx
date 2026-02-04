@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import Layout from '@/components/layout/Layout';
 import { useState, useEffect, useRef, useCallback } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const cdn = (url: string, w = 800) =>
   url.replace('/upload/', `/upload/f_auto,q_auto,w_${w},c_fill/`);
@@ -425,6 +426,309 @@ const Experiences = () => {
 
   return (
     <Layout>
+      {/* ============================================
+          SEO META TAGS - React Helmet
+          ============================================ */}
+      <Helmet>
+        {/* Primary Meta Tags */}
+        <title>Activities & Experiences at Nandgram Godham | Water Park, Adventure & More</title>
+        <meta name="title" content="Activities & Experiences at Nandgram Godham | Water Park, Shauryavan & More" />
+        <meta 
+          name="description" 
+          content="Explore 10+ exciting activities at Nandgram Godham: Water park, Pic City, Aaplegaon village tour, Gaushala, Shauryavan adventure zone, boating, swimming & more. Fun for all ages!" 
+        />
+        <meta 
+          name="keywords" 
+          content="Nandgram Godham experiences, water park Jalgaon, adventure activities Maharashtra, agri tourism activities, Pic City photography, village tour, boating, swimming pool, tents cottages, family activities bhusawal, weekend activities Maharashtra" 
+        />
+        <meta name="author" content="Nandgram Godham" />
+        <meta name="robots" content="index, follow" />
+        <meta name="language" content="English, Hindi, Marathi" />
+
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://www.nandgramgodham.in/experiences" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.nandgramgodham.in/experiences" />
+        <meta property="og:title" content="Activities & Experiences at Nandgram Godham" />
+        <meta 
+          property="og:description" 
+          content="Discover 10+ exciting activities: Water park, adventure zones, village tours, gaushala, boating, photography spots & more. Perfect for families & adventure seekers!" 
+        />
+        <meta 
+          property="og:image" 
+          content="https://res.cloudinary.com/dzaasf1ph/image/upload/v1769757284/20260125_125241_oecmsz_hvruik.jpg" 
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="Nandgram Godham" />
+        <meta property="og:locale" content="en_IN" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://www.nandgramgodham.in/experiences" />
+        <meta name="twitter:title" content="Activities & Experiences at Nandgram Godham" />
+        <meta 
+          name="twitter:description" 
+          content="10+ exciting activities: Water park, adventure zones, village tours, boating & more. Fun for all ages at Nandgram Godham!" 
+        />
+        <meta 
+          name="twitter:image" 
+          content="https://res.cloudinary.com/dzaasf1ph/image/upload/v1769757284/20260125_125241_oecmsz_hvruik.jpg" 
+        />
+
+        {/* Additional Meta Tags */}
+        <meta name="theme-color" content="#10b981" />
+        <meta name="geo.region" content="IN-MH" />
+        <meta name="geo.placename" content="Anjale" />
+
+        {/* Structured Data - ItemList (List of Activities) */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "Experiences at Nandgram Godham",
+            "description": "Complete list of activities and experiences available at Nandgram Godham",
+            "numberOfItems": 10,
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                  "@type": "TouristAttraction",
+                  "name": "Pic City",
+                  "description": "Professional photography spots with scenic backdrops for family portraits and memorable photos",
+                  "image": "https://res.cloudinary.com/dzaasf1ph/image/upload/v1769756175/20260125_130955_gzr6lc_nykt2o.jpg"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                  "@type": "WaterPark",
+                  "name": "Water Park",
+                  "description": "Thrilling water slides, wave pools, and splash zones with lifeguards on duty",
+                  "image": "https://res.cloudinary.com/dzaasf1ph/image/upload/v1769757284/20260125_125241_oecmsz_hvruik.jpg"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "item": {
+                  "@type": "TouristAttraction",
+                  "name": "Aaplegaon Village Tour",
+                  "description": "Experience authentic village life and traditional rural Maharashtra culture",
+                  "image": "https://res.cloudinary.com/dzaasf1ph/image/upload/v1769757828/20260125_121338_t1f0j2_xeoogq.jpg"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 4,
+                "item": {
+                  "@type": "TouristAttraction",
+                  "name": "Gautirth Cow Museum",
+                  "description": "Spiritual and educational center dedicated to cow importance in Indian culture",
+                  "image": "https://res.cloudinary.com/dzaasf1ph/image/upload/v1769758603/20260125_121151_xvswlh_qe4ygn.jpg"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 5,
+                "item": {
+                  "@type": "TouristAttraction",
+                  "name": "Gaushala",
+                  "description": "Organic cattle shelter with fresh dairy products and farm tours",
+                  "image": "https://res.cloudinary.com/dzaasf1ph/image/upload/v1769758652/20260125_121751_pszukp_p0xyfn.jpg"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 6,
+                "item": {
+                  "@type": "TouristAttraction",
+                  "name": "Boating Point",
+                  "description": "Serene boating experience with scenic lake views and nature photography",
+                  "image": "https://res.cloudinary.com/dzaasf1ph/image/upload/v1769759261/10_m3sbew_lhwuiv.webp"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 7,
+                "item": {
+                  "@type": "TouristAttraction",
+                  "name": "Pixo Park",
+                  "description": "Theme-based photo zone with global architecture and colorful creative sets",
+                  "image": "https://res.cloudinary.com/dzaasf1ph/image/upload/v1769759600/20260125_123131_l7e4f2_c03a6b.jpg"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 8,
+                "item": {
+                  "@type": "TouristAttraction",
+                  "name": "Shauryavan Adventure Zone",
+                  "description": "Military-style obstacle course with Burma bridge and commando training activities",
+                  "image": "https://res.cloudinary.com/dzaasf1ph/image/upload/v1769759933/20260125_122852_ylujas_oibk0q.jpg"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 9,
+                "item": {
+                  "@type": "SwimmingPool",
+                  "name": "Swimming Pool",
+                  "description": "Crystal-clear pool with separate sections for adults and children",
+                  "image": "https://res.cloudinary.com/dzaasf1ph/image/upload/v1769688012/unnamed_14_k0tghc.webp"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 10,
+                "item": {
+                  "@type": "LodgingBusiness",
+                  "name": "Tents & Cottages",
+                  "description": "Luxury camping and cozy cottages with modern amenities",
+                  "image": "https://res.cloudinary.com/dzaasf1ph/image/upload/v1769760267/20260125_123748_gdnflr_hk4nof.jpg"
+                }
+              }
+            ]
+          })}
+        </script>
+
+        {/* Structured Data - Service Catalog */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "serviceType": "Recreation & Entertainment",
+            "provider": {
+              "@type": "Organization",
+              "name": "Nandgram Godham",
+              "url": "https://www.nandgramgodham.in"
+            },
+            "areaServed": {
+              "@type": "City",
+              "name": "Anjale",
+              "containedIn": {
+                "@type": "State",
+                "name": "Maharashtra"
+              }
+            },
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Activities & Experiences",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Water Park Activities",
+                    "description": "Water slides, wave pool, lazy river, splash zones"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Adventure Activities",
+                    "description": "Shauryavan obstacle course, Burma bridge, commando training"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Cultural Experiences",
+                    "description": "Village tours, agro activities, traditional crafts"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Photography & Scenic Spots",
+                    "description": "Pic City, Pixo Park, themed photo zones"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Accommodation",
+                    "description": "Luxury tents, cottages, overnight stays"
+                  }
+                }
+              ]
+            }
+          })}
+        </script>
+
+        {/* Breadcrumb Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.nandgramgodham.in"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Experiences",
+                "item": "https://www.nandgramgodham.in/experiences"
+              }
+            ]
+          })}
+        </script>
+
+        {/* FAQ Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What activities are available at Nandgram Godham?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Nandgram Godham offers 10+ activities including water park with slides and pools, Pic City photography spots, Aaplegaon village tours, Shauryavan adventure zone, boating, swimming pool, Pixo Park themed sets, Gautirth cow museum, Gaushala organic farm, and tents & cottages for overnight stays."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is the water park suitable for children?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes! Our water park has dedicated kids splash zones, shallow pools for toddlers, and lifeguards on duty. We have attractions suitable for all age groups from toddlers to adults."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can we do adventure activities at Nandgram Godham?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Absolutely! Shauryavan Adventure Zone offers military-style obstacle courses including Burma bridge, commando nets, parallel ropes, and team building activities perfect for kids and teens."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Are photography spots available?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes! We have Pic City with professional photography spots, scenic backdrops, and Pixo Park with world-themed architecture perfect for Instagram photos, family portraits, and pre-wedding shoots."
+                }
+              }
+            ]
+          })}
+        </script>
+      </Helmet>
+
       <style>{`
 
   html {

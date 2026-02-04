@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import ScrollToTop from '@/components/ScrollToTop';
+import { HelmetProvider } from 'react-helmet-async';
 
 
 import Home from "./pages/Home";
@@ -35,6 +36,7 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <LanguageProvider>
       <TooltipProvider>
+        <HelmetProvider>
         <Toaster />
         <Sonner />
         <BrowserRouter>
@@ -61,6 +63,7 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
+        </HelmetProvider>
       </TooltipProvider>
     </LanguageProvider>
   </QueryClientProvider>
