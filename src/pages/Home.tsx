@@ -877,7 +877,7 @@ const Home = () => {
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "LocalBusiness",
+            "@type": "TouristAttraction",
             "name": "Nandgram Godham",
             "image": "https://res.cloudinary.com/dzaasf1ph/image/upload/v1769749784/7_yc9s2h_rioxna.png",
             "@id": "https://www.nandgramgodham.in",
@@ -913,7 +913,7 @@ const Home = () => {
             "aggregateRating": {
               "@type": "AggregateRating",
               "ratingValue": "4.8",
-              "ratingCount": "1000"
+              "reviewCount": "1000"
             }
           })}
         </script>

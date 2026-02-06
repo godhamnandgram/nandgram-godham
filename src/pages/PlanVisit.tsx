@@ -275,43 +275,6 @@ const PlanVisit = () => {
           })}
         </script>
 
-        {/* Structured Data - Event (for Day Visit) */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Event",
-            "name": "Day Visit to Nandgram Godham",
-            "description": "Full day experience with water park, cultural activities, adventure zones, and nature exploration",
-            "image": "https://res.cloudinary.com/dzaasf1ph/image/upload/v1769776024/20260125_125947_nqi9uf_wl91et.jpg",
-            "eventStatus": "https://schema.org/EventScheduled",
-            "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-            "location": {
-              "@type": "Place",
-              "name": "Nandgram Godham",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Near Bhusawal",
-                "addressLocality": "Anjale, Yawal Taluka, Jalgaon",
-                "addressRegion": "Maharashtra",
-                "postalCode": "425301",
-                "addressCountry": "IN"
-              }
-            },
-            "offers": {
-              "@type": "Ticket Price",
-              "url": "https://www.nandgramgodham.in/plan-your-visit",
-              "price": "500",
-              "priceCurrency": "INR",
-              "availability": "https://schema.org/InStock",
-              "validFrom": "2024-01-01"
-            },
-            "organizer": {
-              "@type": "Organization",
-              "name": "Nandgram Godham",
-              "url": "https://www.nandgramgodham.in"
-            }
-          })}
-        </script>
 
         {/* Breadcrumb Structured Data */}
         <script type="application/ld+json">
