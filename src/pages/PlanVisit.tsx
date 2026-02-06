@@ -137,7 +137,7 @@ const PlanVisit = () => {
                 "closes": "17:00"
               }
             ],
-          "priceRange": "₹₹",
+          "priceRange": "₹500 per person (Free for children under 5 yrs age)",
        
           })}
         </script>
