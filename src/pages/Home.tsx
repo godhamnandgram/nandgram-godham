@@ -909,11 +909,6 @@ const Home = () => {
               ],
               "opens": "10:00",
               "closes": "17:00"
-            },
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.8",
-              "reviewCount": "1000"
             }
           })}
         </script>

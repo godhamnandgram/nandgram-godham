@@ -138,12 +138,7 @@ const PlanVisit = () => {
               }
             ],
           "priceRange": "₹₹",
-          "offers": {
-            "@type": "Price",
-            "price": "500",
-          "priceCurrency": "INR",
-          "description": "Entry package includes water park access, all other activities and amenities. Free for children under 5 years."
-          }
+       
           })}
         </script>
 

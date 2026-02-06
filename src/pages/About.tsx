@@ -136,11 +136,6 @@ const About = () => {
                 "closes": "17:00"
               }
             ],
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.8",
-              "ratingCount": "1000"
-            },
             "slogan": "Rooted in tradition, growing with joy",
             "mission": "To become Maharashtra's most beloved family destination — a place where urban families reconnect with nature, where children discover the wonder of rural life, and where every visit creates cherished memories."
           })}
